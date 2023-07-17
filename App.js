@@ -128,7 +128,9 @@ app.post("/addstudent", (req, res) => {
             throw err;
           } else {
             if(results.affectedRows > 0) {
-              res.render("add", { mesg: true })
+              res.json(true)
+            }else{
+              res.json(false)
             }
           }
         })
