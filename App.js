@@ -184,7 +184,7 @@ app.get("/updatesearch", (req, res) => {
 app.put("/updateStudent", (req, res) => {
   // fetch data
 
-  const { phone, name, gender } = req.query;
+  const { phone, name, gender } = req.body;
   let qry = "update test set name=?, gender=? where phoneno=?";
 
   mysql.query(qry, [name, gender, phone], (err, results) => {
