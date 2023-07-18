@@ -102,7 +102,7 @@ app.get("/view", (req, res) => {
 });
 
 
-app.post("/addstudent", (req, res) => {
+app.post("/addStudent", (req, res) => {
   // fetching data from form
 
   const { name, phone, email, gender } = req.body;
@@ -198,11 +198,10 @@ app.get("/updatestudent", (req, res) => {
 
 });
 
-app.get("/removestudent", (req, res) => {
+app.get("/removeStudent", (req, res) => {
 
   // fetch data from the form
-
-
+  
   const { phone } = req.query;
   console.log(phone)
 
@@ -211,13 +210,12 @@ app.get("/removestudent", (req, res) => {
     if (err) throw err
     else {
       if (results.affectedRows > 0) {
-        res.render("delete", { mesg1: true, mesg2: false })
+        //res.render("delete", { mesg1: true, mesg2: false })
+        res.json(true)
       } else {
-
-        res.render("delete", { mesg1: false, mesg2: true })
-
+        //res.render("delete", { mesg1: false, mesg2: true })
+        res.json(false)
       }
-
     }
   });
 });
