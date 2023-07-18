@@ -181,7 +181,7 @@ app.get("/updatesearch", (req, res) => {
     }
   });
 })
-app.get("/updatestudent", (req, res) => {
+app.put("/updateStudent", (req, res) => {
   // fetch data
 
   const { phone, name, gender } = req.query;
@@ -191,7 +191,10 @@ app.get("/updatestudent", (req, res) => {
     if (err) throw err
     else {
       if (results.affectedRows > 0) {
-        res.render("update", { umesg: true })
+        res.json(true)
+        //res.render("update", { umesg: true })
+      }else{
+        res.json(false)
       }
     }
   })
@@ -201,7 +204,7 @@ app.get("/updatestudent", (req, res) => {
 app.get("/removeStudent", (req, res) => {
 
   // fetch data from the form
-  
+
   const { phone } = req.query;
   console.log(phone)
 
